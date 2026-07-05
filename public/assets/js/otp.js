@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     isSubmitting = true;
 
     try {
-      const data = await fetchAPI('/uaskte/public/api/otp-verify.php', {
+      const data = await fetchAPI('api/otp-verify.php', {
         method: 'POST',
         body: { otp },
       });
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast('OTP verified successfully!', 'success');
         // Short delay so user sees the success message
         setTimeout(() => {
-          window.location.href = data.redirect ? '/uaskte/public/' + data.redirect : '/uaskte/public/dashboard.php';
+          window.location.href = data.redirect ? './' + data.redirect : './dashboard.php';
         }, 800);
       } else {
         handleVerifyError(data.message || 'Invalid OTP code.');
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (resendBtn.disabled) return;
 
       try {
-        const data = await fetchAPI('/uaskte/public/api/otp-resend.php', {
+        const data = await fetchAPI('api/otp-resend.php', {
           method: 'POST',
         });
 

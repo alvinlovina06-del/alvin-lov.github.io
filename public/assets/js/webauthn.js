@@ -87,7 +87,7 @@ async function registerBiometric() {
     updateStatus(statusEl, 'Requesting registration options…', '');
 
     // Step 1: Fetch creation options from server
-    const optionsResponse = await fetchAPI('/uaskte/public/api/webauthn-register.php', {
+    const optionsResponse = await fetchAPI(window.API_BASE + 'webauthn-register.php', {
       method: 'GET',
     });
 
@@ -125,7 +125,7 @@ async function registerBiometric() {
       },
     };
 
-    const result = await fetchAPI('/uaskte/public/api/webauthn-register.php', {
+    const result = await fetchAPI(window.API_BASE + 'webauthn-register.php', {
       method: 'POST',
       body: registrationData,
     });
@@ -176,7 +176,7 @@ async function authenticateBiometric() {
     updateStatus(statusEl, 'Requesting authentication options…', '');
 
     // Step 1: Fetch assertion options from server
-    const optionsResponse = await fetchAPI('/uaskte/public/api/webauthn-verify.php', {
+    const optionsResponse = await fetchAPI(window.API_BASE + 'webauthn-verify.php', {
       method: 'GET',
     });
 
@@ -217,7 +217,7 @@ async function authenticateBiometric() {
       },
     };
 
-    const result = await fetchAPI('/uaskte/public/api/webauthn-verify.php', {
+    const result = await fetchAPI(window.API_BASE + 'webauthn-verify.php', {
       method: 'POST',
       body: authData,
     });

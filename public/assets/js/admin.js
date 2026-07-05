@@ -26,7 +26,7 @@ async function loadUsers(page = 1, search = '') {
 
   try {
     const params = new URLSearchParams({ page, search });
-    const data   = await fetchAPI(`/uaskte/public/api/users-crud.php?${params}`, {
+    const data   = await fetchAPI(`../api/users-crud.php?${params}`, {
       method: 'GET',
     });
 
@@ -192,7 +192,7 @@ async function openEditModal(userId) {
   resetForm();
 
   try {
-    const data = await fetchAPI(`/uaskte/public/api/users-crud.php?id=${userId}`, {
+    const data = await fetchAPI(`../api/users-crud.php?id=${userId}`, {
       method: 'GET',
     });
 
@@ -286,13 +286,13 @@ async function saveUser(event) {
     if (editingUserId) {
       // Update existing user (PUT)
       userData.id = editingUserId;
-      result = await fetchAPI(`/uaskte/public/api/users-crud.php?id=${editingUserId}`, {
+      result = await fetchAPI(`../api/users-crud.php?id=${editingUserId}`, {
         method: 'PUT',
         body: userData,
       });
     } else {
       // Create new user (POST)
-      result = await fetchAPI('/uaskte/public/api/users-crud.php', {
+      result = await fetchAPI('../api/users-crud.php', {
         method: 'POST',
         body: userData,
       });
@@ -327,7 +327,7 @@ async function deleteUser(userId) {
   if (!confirmed) return;
 
   try {
-    const result = await fetchAPI(`/uaskte/public/api/users-crud.php?id=${userId}`, {
+    const result = await fetchAPI(`../api/users-crud.php?id=${userId}`, {
       method: 'DELETE',
       body: { id: userId },
     });
@@ -359,7 +359,7 @@ async function loadAuditLog(userId) {
   }
 
   try {
-    const data = await fetchAPI(`/uaskte/public/api/audit-log.php?user_id=${userId}`, {
+    const data = await fetchAPI(`../api/audit-log.php?user_id=${userId}`, {
       method: 'GET',
     });
 

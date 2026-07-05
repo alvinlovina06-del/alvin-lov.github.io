@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # UASKTE App — Secure User Management PWA
 
 Project Akhir: Website berbasis PWA untuk pengelolaan user dengan multi-layer security.
@@ -107,3 +108,6 @@ Website ini mendukung PWA (Progressive Web App):
 - WebAuthn (Biometric)
 - PWA (Service Worker + Manifest)
 - Vanilla CSS + JavaScript
+=======
+# alvin-lov.github.io
+>>>>>>> 0faa9b92844b361c15470192b1d5437e2add1951

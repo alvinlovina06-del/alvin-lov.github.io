@@ -10,11 +10,11 @@ function getDBConnection(): PDO {
     static $pdo = null;
     
     if ($pdo === null) {
-        $host = $_ENV['DB_HOST'] ?? 'localhost';
-        $port = $_ENV['DB_PORT'] ?? '3306';
-        $name = $_ENV['DB_NAME'] ?? 'uaskte_db';
-        $user = $_ENV['DB_USER'] ?? 'root';
-        $pass = $_ENV['DB_PASS'] ?? '';
+        $host = defined('DB_HOST') ? DB_HOST : ($_ENV['DB_HOST'] ?? 'localhost');
+        $port = defined('DB_PORT') ? DB_PORT : ($_ENV['DB_PORT'] ?? '3306');
+        $name = defined('DB_NAME') ? DB_NAME : ($_ENV['DB_NAME'] ?? 'uaskte_db');
+        $user = defined('DB_USER') ? DB_USER : ($_ENV['DB_USER'] ?? 'root');
+        $pass = defined('DB_PASS') ? DB_PASS : ($_ENV['DB_PASS'] ?? '');
 
         $dsn = "mysql:host={$host};port={$port};dbname={$name};charset=utf8mb4";
         

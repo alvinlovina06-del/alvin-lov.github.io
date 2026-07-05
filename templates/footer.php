@@ -1,4 +1,4 @@
-    <script src="/uaskte/public/assets/js/app.js"></script>
+    <script src="<?= $basePath ?? './' ?>assets/js/app.js"></script>
     <?php if (!empty($extraJs)): ?>
         <?php foreach ($extraJs as $js): ?>
         <script src="<?= htmlspecialchars($js) ?>"></script>

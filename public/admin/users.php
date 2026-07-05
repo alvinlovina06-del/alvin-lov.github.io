@@ -9,9 +9,10 @@ $user = Auth::getUser();
 
 $pageTitle = 'Kelola User';
 $pageClass = 'dashboard-page';
+$basePath = '../';
 $extraJs = [
-    '/uaskte/public/assets/js/webauthn.js?v=' . time(),
-    '/uaskte/public/assets/js/admin.js?v=' . time()
+    $basePath . 'assets/js/webauthn.js?v=' . time(),
+    $basePath . 'assets/js/admin.js?v=' . time()
 ];
 require_once __DIR__ . '/../../templates/header.php';
 ?>
